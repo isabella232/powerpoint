@@ -37,12 +37,16 @@ module Powerpoint
 
       img_coords = { x: 826325, y: 1825625, cx: 10515600, cy: 4351338 }
 
-      slide = Powerpoint::Slide::DefaultSlide.new({
+      slide = Powerpoint::Slide::DefaultSlide.new(
         title: title,
         slide_layout: 2,
         elements: [
-          Powerpoint::Slide::ImageContent.new(idx: 1, image_path: image_path, centered: true, coords: img_coords)
-      ]})
+          Powerpoint::Slide::ImageContent.new(
+            idx: 1,
+            image_path: image_path,
+            centered: true,
+            coords: img_coords)
+        ])
 
       @slides << slide
     end
@@ -51,13 +55,13 @@ module Powerpoint
 
       img_coords = { x: 6172200, y: 1825625, cx: 5181600, cy: 4351338 }
 
-      slide = Powerpoint::Slide::DefaultSlide.new({
+      slide = Powerpoint::Slide::DefaultSlide.new(
         title: title,
         slide_layout: 4,
         elements: [
           Powerpoint::Slide::TextContent.new(idx: 1, content: content),
           Powerpoint::Slide::ImageContent.new(idx: 2, image_path: image_path, coords: img_coords)
-        ]})
+        ])
 
       @slides << slide
     end
@@ -66,13 +70,13 @@ module Powerpoint
 
       img_coords = { x: 5183188, y: 987425, cx: 6172200, cy: 4873625 }
 
-      slide = Powerpoint::Slide::DefaultSlide.new({
+      slide = Powerpoint::Slide::DefaultSlide.new(
         title: title,
         slide_layout: 9,
         elements: [
           Powerpoint::Slide::ImageContent.new(idx: 1, image_path: image_path, coords: img_coords),
           Powerpoint::Slide::TextContent.new(idx: 2, bullets: true, content: content)
-        ]})
+        ])
 
       @slides << slide
     end
@@ -115,7 +119,7 @@ module Powerpoint
 
     def file_types
       types = slides.map do |slide|
-        slide.file_types if slide.respond_to? :file_types
+        slide.file_types if slide.respond_to?(:file_types)
       end
       types.compact.flatten.uniq
     end

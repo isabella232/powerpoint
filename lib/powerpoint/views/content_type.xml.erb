@@ -3,12 +3,12 @@
   <Default ContentType="application/xml" Extension="xml"/>
   <Default ContentType="application/vnd.openxmlformats-package.relationships+xml" Extension="rels"/>
   <% file_types.each do |type| %>
-  <Default ContentType="image/<%= type %>" Extension="<%= type %>"/>
+    <Default ContentType="image/<%= type %>" Extension="<%= type %>"/>
   <% end %>
   <Override ContentType="application/vnd.openxmlformats-officedocument.presentationml.presentation.main+xml" PartName="/ppt/presentation.xml"/>
   <Override ContentType="application/vnd.openxmlformats-officedocument.presentationml.slideMaster+xml" PartName="/ppt/slideMasters/slideMaster1.xml"/>
   <% slides.each_with_index do |slide, index| %>
-  <Override ContentType="application/vnd.openxmlformats-officedocument.presentationml.slide+xml" PartName="/ppt/slides/slide<%= index + 1 %>.xml"/>
+    <Override ContentType="application/vnd.openxmlformats-officedocument.presentationml.slide+xml" PartName="/ppt/slides/slide<%= index + 1 %>.xml"/>
   <% end %>
   <Override PartName="/ppt/presProps.xml"
             ContentType="application/vnd.openxmlformats-officedocument.presentationml.presProps+xml"/>

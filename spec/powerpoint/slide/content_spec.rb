@@ -45,12 +45,6 @@ describe 'Content' do
 
   it 'default slide has content' do
 
-    # img_opts = {
-    #     id: 12,
-    #     idx: 14,
-    #     image_path: 'samples/images/sample_png.png'
-    # }
-
     table_opts = {
         id: 11,
         idx: 14,
@@ -64,7 +58,6 @@ describe 'Content' do
     }
 
     elements = [
-        # Powerpoint::Slide::ImageContent.new(img_opts),
         Powerpoint::Slide::TableContent.new(table_opts),
         Powerpoint::Slide::TextContent.new(text_opts)
     ]
