@@ -1,6 +1,6 @@
-require "bundler/gem_tasks"
+require 'bundler/gem_tasks'
 require 'rspec/core/rake_task'
-require "csd-gem-helper"
+require 'csd-gem-helper'
 
 RSpec::Core::RakeTask.new('spec')
 

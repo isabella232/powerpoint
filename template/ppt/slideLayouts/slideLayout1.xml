@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<p:sldLayout preserve="1" type="title" xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:p="http://schemas.openxmlformats.org/presentationml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">
+<p:sldLayout xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"
+             xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"
+             xmlns:p="http://schemas.openxmlformats.org/presentationml/2006/main" type="title"
+             preserve="1">
   <p:cSld name="Title Slide">
     <p:spTree>
       <p:nvGrpSpPr>
@@ -27,13 +30,17 @@
         </p:nvSpPr>
         <p:spPr>
           <a:xfrm>
-            <a:off x="685800" y="2130425"/>
-            <a:ext cx="7772400" cy="1470025"/>
+            <a:off x="1524000" y="1122363"/>
+            <a:ext cx="9144000" cy="2387600"/>
           </a:xfrm>
         </p:spPr>
         <p:txBody>
-          <a:bodyPr/>
-          <a:lstStyle/>
+          <a:bodyPr anchor="b"/>
+          <a:lstStyle>
+            <a:lvl1pPr algn="ctr">
+              <a:defRPr sz="6000"/>
+            </a:lvl1pPr>
+          </a:lstStyle>
           <a:p>
             <a:r>
               <a:rPr lang="en-US" smtClean="0"/>
@@ -50,107 +57,53 @@
             <a:spLocks noGrp="1"/>
           </p:cNvSpPr>
           <p:nvPr>
-            <p:ph idx="1" type="subTitle"/>
+            <p:ph type="subTitle" idx="1"/>
           </p:nvPr>
         </p:nvSpPr>
         <p:spPr>
           <a:xfrm>
-            <a:off x="1371600" y="3886200"/>
-            <a:ext cx="6400800" cy="1752600"/>
+            <a:off x="1524000" y="3602038"/>
+            <a:ext cx="9144000" cy="1655762"/>
           </a:xfrm>
         </p:spPr>
         <p:txBody>
           <a:bodyPr/>
           <a:lstStyle>
-            <a:lvl1pPr algn="ctr" indent="0" marL="0">
+            <a:lvl1pPr marL="0" indent="0" algn="ctr">
               <a:buNone/>
-              <a:defRPr>
-                <a:solidFill>
-                  <a:schemeClr val="tx1">
-                    <a:tint val="75000"/>
-                  </a:schemeClr>
-                </a:solidFill>
-              </a:defRPr>
+              <a:defRPr sz="2400"/>
             </a:lvl1pPr>
-            <a:lvl2pPr algn="ctr" indent="0" marL="457200">
+            <a:lvl2pPr marL="457200" indent="0" algn="ctr">
               <a:buNone/>
-              <a:defRPr>
-                <a:solidFill>
-                  <a:schemeClr val="tx1">
-                    <a:tint val="75000"/>
-                  </a:schemeClr>
-                </a:solidFill>
-              </a:defRPr>
+              <a:defRPr sz="2000"/>
             </a:lvl2pPr>
-            <a:lvl3pPr algn="ctr" indent="0" marL="914400">
+            <a:lvl3pPr marL="914400" indent="0" algn="ctr">
               <a:buNone/>
-              <a:defRPr>
-                <a:solidFill>
-                  <a:schemeClr val="tx1">
-                    <a:tint val="75000"/>
-                  </a:schemeClr>
-                </a:solidFill>
-              </a:defRPr>
+              <a:defRPr sz="1800"/>
             </a:lvl3pPr>
-            <a:lvl4pPr algn="ctr" indent="0" marL="1371600">
+            <a:lvl4pPr marL="1371600" indent="0" algn="ctr">
               <a:buNone/>
-              <a:defRPr>
-                <a:solidFill>
-                  <a:schemeClr val="tx1">
-                    <a:tint val="75000"/>
-                  </a:schemeClr>
-                </a:solidFill>
-              </a:defRPr>
+              <a:defRPr sz="1600"/>
             </a:lvl4pPr>
-            <a:lvl5pPr algn="ctr" indent="0" marL="1828800">
+            <a:lvl5pPr marL="1828800" indent="0" algn="ctr">
               <a:buNone/>
-              <a:defRPr>
-                <a:solidFill>
-                  <a:schemeClr val="tx1">
-                    <a:tint val="75000"/>
-                  </a:schemeClr>
-                </a:solidFill>
-              </a:defRPr>
+              <a:defRPr sz="1600"/>
             </a:lvl5pPr>
-            <a:lvl6pPr algn="ctr" indent="0" marL="2286000">
+            <a:lvl6pPr marL="2286000" indent="0" algn="ctr">
               <a:buNone/>
-              <a:defRPr>
-                <a:solidFill>
-                  <a:schemeClr val="tx1">
-                    <a:tint val="75000"/>
-                  </a:schemeClr>
-                </a:solidFill>
-              </a:defRPr>
+              <a:defRPr sz="1600"/>
             </a:lvl6pPr>
-            <a:lvl7pPr algn="ctr" indent="0" marL="2743200">
+            <a:lvl7pPr marL="2743200" indent="0" algn="ctr">
               <a:buNone/>
-              <a:defRPr>
-                <a:solidFill>
-                  <a:schemeClr val="tx1">
-                    <a:tint val="75000"/>
-                  </a:schemeClr>
-                </a:solidFill>
-              </a:defRPr>
+              <a:defRPr sz="1600"/>
             </a:lvl7pPr>
-            <a:lvl8pPr algn="ctr" indent="0" marL="3200400">
+            <a:lvl8pPr marL="3200400" indent="0" algn="ctr">
               <a:buNone/>
-              <a:defRPr>
-                <a:solidFill>
-                  <a:schemeClr val="tx1">
-                    <a:tint val="75000"/>
-                  </a:schemeClr>
-                </a:solidFill>
-              </a:defRPr>
+              <a:defRPr sz="1600"/>
             </a:lvl8pPr>
-            <a:lvl9pPr algn="ctr" indent="0" marL="3657600">
+            <a:lvl9pPr marL="3657600" indent="0" algn="ctr">
               <a:buNone/>
-              <a:defRPr>
-                <a:solidFill>
-                  <a:schemeClr val="tx1">
-                    <a:tint val="75000"/>
-                  </a:schemeClr>
-                </a:solidFill>
-              </a:defRPr>
+              <a:defRPr sz="1600"/>
             </a:lvl9pPr>
           </a:lstStyle>
           <a:p>
@@ -169,7 +122,7 @@
             <a:spLocks noGrp="1"/>
           </p:cNvSpPr>
           <p:nvPr>
-            <p:ph idx="10" sz="half" type="dt"/>
+            <p:ph type="dt" sz="half" idx="10"/>
           </p:nvPr>
         </p:nvSpPr>
         <p:spPr/>
@@ -177,10 +130,9 @@
           <a:bodyPr/>
           <a:lstStyle/>
           <a:p>
-            <a:fld id="{1D8BD707-D9CF-40AE-B4C6-C98DA3205C09}" type="datetimeFigureOut">
+            <a:fld id="{261AD986-E844-8B40-950C-F4D283D6379F}" type="datetimeFigureOut">
               <a:rPr lang="en-US" smtClean="0"/>
-              <a:pPr/>
-              <a:t>7/14/15</a:t>
+              <a:t>11/9/15</a:t>
             </a:fld>
             <a:endParaRPr lang="en-US"/>
           </a:p>
@@ -193,7 +145,7 @@
             <a:spLocks noGrp="1"/>
           </p:cNvSpPr>
           <p:nvPr>
-            <p:ph idx="11" sz="quarter" type="ftr"/>
+            <p:ph type="ftr" sz="quarter" idx="11"/>
           </p:nvPr>
         </p:nvSpPr>
         <p:spPr/>
@@ -212,7 +164,7 @@
             <a:spLocks noGrp="1"/>
           </p:cNvSpPr>
           <p:nvPr>
-            <p:ph idx="12" sz="quarter" type="sldNum"/>
+            <p:ph type="sldNum" sz="quarter" idx="12"/>
           </p:nvPr>
         </p:nvSpPr>
         <p:spPr/>
@@ -220,9 +172,8 @@
           <a:bodyPr/>
           <a:lstStyle/>
           <a:p>
-            <a:fld id="{B6F15528-21DE-4FAA-801E-634DDDAF4B2B}" type="slidenum">
+            <a:fld id="{A8731B33-9990-6748-A800-BE7B4ECD74C1}" type="slidenum">
               <a:rPr lang="en-US" smtClean="0"/>
-              <a:pPr/>
               <a:t>‹#›</a:t>
             </a:fld>
             <a:endParaRPr lang="en-US"/>
@@ -230,6 +181,12 @@
         </p:txBody>
       </p:sp>
     </p:spTree>
+    <p:extLst>
+      <p:ext uri="{BB962C8B-B14F-4D97-AF65-F5344CB8AC3E}">
+        <p14:creationId xmlns:p14="http://schemas.microsoft.com/office/powerpoint/2010/main"
+                        val="266020470"/>
+      </p:ext>
+    </p:extLst>
   </p:cSld>
   <p:clrMapOvr>
     <a:masterClrMapping/>
