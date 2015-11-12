@@ -26,7 +26,7 @@ module Powerpoint
       end
 
       def render
-        render_str('text.xml.erb')
+        render_str('_text.xml.erb')
       end
     end
   end

@@ -29,7 +29,7 @@ module Powerpoint
       end
 
       def render
-        render_str('picture.xml.erb')
+        render_str('_picture.xml.erb')
       end
     end
   end

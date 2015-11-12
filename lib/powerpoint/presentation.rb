@@ -23,18 +23,19 @@ module Powerpoint
     end
 
     def add_textual_slide(title, content = [])
-      slide = Powerpoint::Slide::DefaultSlide.new({
-          title: title,
-          slide_layout: 2,
-          elements: [
+      slide = Powerpoint::Slide::DefaultSlide.new(
+        title: title,
+        slide_layout: 2,
+        elements: [
           Powerpoint::Slide::TextContent.new(idx: 1, bullets: true, content: content)
-      ]})
+      ])
 
       @slides << slide
     end
 
     def add_pictorial_slide(title, image_path, coords = {})
 
+      # magic coordinates from the slide layout
       img_coords = { x: 826325, y: 1825625, cx: 10515600, cy: 4351338 }
 
       slide = Powerpoint::Slide::DefaultSlide.new(
@@ -53,6 +54,7 @@ module Powerpoint
 
     def add_text_picture_slide(title, image_path, content = [])
 
+      # magic coordinates from the slide layout
       img_coords = { x: 6172200, y: 1825625, cx: 5181600, cy: 4351338 }
 
       slide = Powerpoint::Slide::DefaultSlide.new(
@@ -68,6 +70,7 @@ module Powerpoint
 
     def add_picture_description_slide(title, image_path, content = [])
 
+      # magic coordinates from the slide layout
       img_coords = { x: 5183188, y: 987425, cx: 6172200, cy: 4873625 }
 
       slide = Powerpoint::Slide::DefaultSlide.new(

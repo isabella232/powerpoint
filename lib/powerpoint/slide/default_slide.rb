@@ -7,7 +7,7 @@ module Powerpoint
     class DefaultSlide
       include Powerpoint::Util
 
-      attr_reader :elements, :title, :slide_layout, :content_xml, :images
+      attr_reader :elements, :title, :slide_layout, :images
 
       def initialize(options={})
         require_arguments [:elements, :title, :slide_layout], options
@@ -21,8 +21,6 @@ module Powerpoint
         @elements.each_with_index do |elem, i|
           elem.id = 10 + i
         end
-
-        @content_xml = gen_xml
       end
 
       def file_types
@@ -32,7 +30,7 @@ module Powerpoint
         types.compact.uniq
       end
 
-      def gen_xml
+      def content_xml
         xmls = elements.map { |e| e.render }
         xmls.join('')
       end

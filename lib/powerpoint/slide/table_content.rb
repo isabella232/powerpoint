@@ -15,7 +15,7 @@ module Powerpoint
       end
 
       def render
-        render_str('table.xml.erb')
+        render_str('_table.xml.erb')
       end
     end
   end
