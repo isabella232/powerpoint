@@ -1,0 +1,29 @@
+<p:sp>
+  <p:nvSpPr>
+    <p:cNvPr id="<%= id %>" name="Content Placeholder 2"/>
+    <p:cNvSpPr>
+      <a:spLocks noGrp="1"/>
+    </p:cNvSpPr>
+    <p:nvPr>
+      <p:ph idx="<%= idx %>"/>
+    </p:nvPr>
+  </p:nvSpPr>
+  <p:spPr/>
+  <p:txBody>
+
+    <% unless bullets %>
+      <a:bodyPr>
+        <a:normAutofit/>
+      </a:bodyPr>
+    <% else %>
+      <a:bodyPr/>
+    <% end %>
+
+    <a:lstStyle/>
+
+    <% content.each do |content| %>
+      <%= content.render(bullets) %>
+    <% end %>
+
+  </p:txBody>
+</p:sp>

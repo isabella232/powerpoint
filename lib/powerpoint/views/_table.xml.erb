@@ -1,0 +1,54 @@
+<p:graphicFrame>
+  <p:nvGraphicFramePr>
+    <p:cNvPr id="<%= id %>" name="Content Placeholder 3"/>
+    <p:cNvGraphicFramePr>
+      <a:graphicFrameLocks noGrp="1"/>
+    </p:cNvGraphicFramePr>
+    <p:nvPr>
+      <p:ph idx="<%= idx %>"/>
+      <p:extLst>
+        <p:ext uri="{D42A27DB-BD31-4B8C-83A1-F6EECF244321}">
+          <p14:modId xmlns:p14="http://schemas.microsoft.com/office/powerpoint/2010/main" val="1809140355"/>
+        </p:ext>
+      </p:extLst>
+    </p:nvPr>
+  </p:nvGraphicFramePr>
+  <p:xfrm>
+    <a:off x="838200" y="1825625"/>
+    <a:ext cx="10515600" cy="1112520"/>
+  </p:xfrm>
+  <a:graphic>
+    <a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/table">
+      <a:tbl>
+        <a:tblPr firstRow="1" bandRow="1">
+          <a:tableStyleId>{5C22544A-7EE6-4342-B048-85BDC9FD1C3A}</a:tableStyleId>
+        </a:tblPr>
+        <a:tblGrid>
+          <% content.each do |row| %>
+            <a:gridCol w="1000000"/>
+          <% end %>
+        </a:tblGrid>
+        <% content.each do |row| %>
+          <a:tr h="250000">
+            <% row.each do |item| %>
+              <a:tc>
+                <a:txBody>
+                  <a:bodyPr/>
+                  <a:lstStyle/>
+                  <a:p>
+                    <a:r>
+                      <a:rPr lang="en-US" sz="1200" xdirty="0" err="1" smtClean="0"/>
+                      <a:t><%= item %></a:t>
+                    </a:r>
+                    <a:endParaRPr lang="en-US" dirty="0"/>
+                  </a:p>
+                </a:txBody>
+                <a:tcPr/>
+              </a:tc>
+            <% end %>
+          </a:tr>
+        <% end %>
+      </a:tbl>
+    </a:graphicData>
+  </a:graphic>
+</p:graphicFrame>
