@@ -42,7 +42,7 @@ describe 'Powerpoint parsing a sample PPTX file' do
 
       Powerpoint::Slide::TextContent.new(
         idx: 16,
-        content: [t.new('foo', size: 2400, color: '2d97d3') + 'bar', t.new('baz') + '◼']
+        content: [t.new('foo', size: 2400, color: '2d97d3') + 'bar', t.new('baz', bold: true) + '◼']
       )
     ]
 

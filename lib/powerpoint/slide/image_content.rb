@@ -1,4 +1,5 @@
 require 'erb'
+require 'fastimage'
 
 module Powerpoint
   module Slide

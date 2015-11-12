@@ -70,12 +70,13 @@ module Powerpoint
       end
 
       def render_elem
-        sz = (options[:size].nil?) ? ' ' : %( sz="#{options[:size]}")
+        sz = (options[:size].nil?) ? ' ' : %(sz="#{options[:size]}")
         color = (options[:color].nil?) ? '' : %(<a:solidFill>
                                                   <a:srgbClr val="#{options[:color]}"/>
                                                  </a:solidFill>)
+        bold = (options[:bold]) ? 'b="1"' : ''
 
-        before = '<a:r><a:rPr dirty="0" lang="en-US"' + sz + ' smtClean="0">' + color + '</a:rPr><a:t>'
+        before = %(<a:r><a:rPr dirty="0" lang="en-US" #{sz} #{bold} smtClean="0">#{color}</a:rPr><a:t>)
         after = '</a:t></a:r>'
 
         "#{before}#{values.join}#{after}"
