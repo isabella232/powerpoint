@@ -65,7 +65,7 @@ describe 'Powerpoint parsing a sample PPTX file' do
     # not welding so we can get a square arrangement here
     right_col = cell.column(['topright1', 'topright2', 'botright'])
     top_left.set_right_neighbors([right_col, right_col.bottom[0]])
-    bottom_left.all_right[0].set_right_neighbor(right_col.bottom_left)
+    bottom_left.all_right[0].set_right_neighbors(right_col.bottom_left)
 
 
     elements = [

@@ -15,7 +15,7 @@ describe 'Cell' do
 
     cell2.set_bottom_neighbors([cell3, cell4])
 
-    cell3.set_right_neighbor(cell4)
+    cell3.set_right_neighbors(cell4)
 
 
     h, v = top_left.calculate_sizing
@@ -43,7 +43,7 @@ describe 'Cell' do
 
     cell2.set_bottom_neighbors([cell3, cell4])
 
-    cell3.set_right_neighbor(cell4)
+    cell3.set_right_neighbors(cell4)
 
 
     expect(top_left.right_most).to eq([cell2, cell4])
@@ -111,7 +111,7 @@ describe 'Cell' do
     # not welding so we can get a square arrangement here
     right_col = cell.column(['topright1', 'topright2', 'botright'])
     top_left.set_right_neighbors([right_col, right_col.bottom[0]])
-    bottom_left.all_right[0].set_right_neighbor(right_col.bottom_left)
+    bottom_left.all_right[0].set_right_neighbors(right_col.bottom_left)
 
     h, v = top_left.calculate_sizing
 

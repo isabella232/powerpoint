@@ -13,6 +13,57 @@ module Powerpoint
         @bottom = []
       end
 
+      # === For building stacks of cells easily ===
+
+      def self.row(data_array)
+        cells = data_array.map { |d| TableCell.new(d) }
+        cells.each_cons(2) { |a, b| a.set_right_neighbors(b) }
+        cells[0]
+      end
+
+      def self.column(data_array)
+        cells = data_array.map { |d| TableCell.new(d) }
+        cells.each_cons(2) { |a, b| a.set_bottom_neighbors(b) }
+        cells[0]
+      end
+
+      def self.weld_horizontal(left, right)
+        left_side = left.right_most
+        right_side = right.left_most
+
+        if left_side.size == right_side.size
+
+          left_side.zip(right_side).each do |l, r|
+            l.set_right_neighbors(r)
+          end
+        elsif left_side.size == 1
+          left_side[0].set_right_neighbors(right_side)
+        else
+          raise ArgumentError, "left and right side of weld did not match [left: #{left_side.size} < or != right: #{right_side.size}]"
+        end
+
+        left
+      end
+
+      def self.weld_vertical(top, bottom)
+        top_side = top.bottom_most
+        bottom_side = bottom.top_most
+
+        if top_side.size == bottom_side.size
+          top_side.zip(bottom_side).each do |l, r|
+            l.set_bottom_neighbors(r)
+          end
+        elsif top_side.size == 1
+          top_side[0].set_bottom_neighbors(bottom_side)
+        else
+          raise ArgumentError, "top and bottom side of weld did not match [top: #{top_side.size} < or != bottom: #{bottom_side.size}]"
+        end
+
+        top
+      end
+
+      # === Renderable cell conversion ===
+
       def to_renderable(go_down = true, template = read_template('_table_cell.xml.erb'))
 
         horizontal, vertical = calculate_sizing
@@ -55,26 +106,28 @@ module Powerpoint
         return cells if @bottom.empty? || !go_down
 
         bot_rows = @bottom[0].to_renderable(true, template)
-        # puts "Bottom: #{bot_rows}"
 
         cells + bot_rows
       end
 
-      def set_right_neighbor(neighbor)
-        @right = [neighbor]
+      # gets the horizontal and vertical size of the single tile in question
+      def calculate_sizing
+        return all_below.size, all_right.size
       end
 
-      def set_right_neighbors(neighbors)
-        @right = neighbors
+      # === Low level mutation methods ===
+      # use with care
+
+      def set_right_neighbors(neighbor)
+        @right = Array(neighbor)
       end
 
-      def set_bottom_neighbor(neighbor)
-        @bottom = [neighbor]
+      def set_bottom_neighbors(neighbor)
+        @bottom = Array(neighbor)
       end
 
-      def set_bottom_neighbors(neighbors)
-        @bottom = neighbors
-      end
+
+      # === Helper methods ===
 
       def top_most
         @right.empty? ? [self] : [self] + @right[0].top_most
@@ -88,10 +141,12 @@ module Powerpoint
         top_most[-1]
       end
 
+      # all cells directly below the cell in question
       def all_below
         @bottom.empty? ? [self] : @bottom.flat_map { |r| r.all_below }.uniq
       end
 
+      # all cells to the right of the cell in question
       def all_right
         @right.empty? ? [self] : @right.flat_map { |r| r.all_right }.uniq
       end
@@ -115,59 +170,9 @@ module Powerpoint
       def bottom_most
         bottom_left.collect_rightwards_stay_down
       end
-
-      def calculate_sizing()
-        return all_below.size, all_right.size
-      end
-
-      def self.row(data_array)
-        cells = data_array.map { |d| TableCell.new(d) }
-        cells.each_cons(2) { |a, b| a.set_right_neighbor(b) }
-        cells[0]
-      end
-
-      def self.column(data_array)
-        cells = data_array.map { |d| TableCell.new(d) }
-        cells.each_cons(2) { |a, b| a.set_bottom_neighbor(b) }
-        cells[0]
-      end
-
-      def self.weld_horizontal(left, right)
-        left_side = left.right_most
-        right_side = right.left_most
-
-        if left_side.size == right_side.size
-
-          left_side.zip(right_side).each do |l, r|
-            l.set_right_neighbor(r)
-          end
-        elsif left_side.size == 1
-          left_side[0].set_right_neighbors(right_side)
-        else
-          raise ArgumentError, "left and right side of weld did not match [left: #{left_side.size} < or != right: #{right_side.size}]"
-        end
-
-        left
-      end
-
-      def self.weld_vertical(top, bottom)
-        top_side = top.bottom_most
-        bottom_side = bottom.top_most
-
-        if top_side.size == bottom_side.size
-          top_side.zip(bottom_side).each do |l, r|
-            l.set_bottom_neighbor(r)
-          end
-        elsif top_side.size == 1
-          top_side[0].set_bottom_neighbors(bottom_side)
-        else
-          raise ArgumentError, "top and bottom side of weld did not match [top: #{top_side.size} < or != bottom: #{bottom_side.size}]"
-        end
-
-        top
-      end
     end
 
+    # Slide content object that render stacks of cells into a formatted table
     class EnhancedTableContent
       include Powerpoint::Util
 
@@ -186,6 +191,8 @@ module Powerpoint
       end
     end
 
+    # Renderable cells are 1:1 with the 'tc' objects that are added to powerpoint xml,
+    # but many of them can be generated from a single TableCell object in the case of merged cells
     class RenderableCell
       include Powerpoint::Util
 
