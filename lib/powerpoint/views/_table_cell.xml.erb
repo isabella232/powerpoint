@@ -1,0 +1,16 @@
+<a:tc <%= gridspan ? " gridSpan=\"#{gridspan}\"" : '' %> <%= rowspan ? " rowSpan=\"#{rowspan}\"" : '' %> <%= h_merge ? ' hMerge="1"' : '' %> <%= v_merge ? ' vMerge="1"' : '' %> >
+  <a:txBody>
+    <a:bodyPr/>
+    <a:lstStyle/>
+    <a:p>
+      <% unless h_merge || v_merge %>
+        <a:r>
+          <a:rPr lang="en-US" sz="1200" dirty="0" smtClean="0" />
+          <a:t><%= data %></a:t>
+        </a:r>
+      <% end %>
+      <a:endParaRPr dirty="0" lang="en-US" />
+    </a:p>
+  </a:txBody>
+  <a:tcPr/>
+</a:tc>
