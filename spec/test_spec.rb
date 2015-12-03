@@ -55,6 +55,40 @@ describe 'Powerpoint parsing a sample PPTX file' do
     @deck.add_slide(Powerpoint::Slide::DefaultSlide.new(slide_opts))
 
 
+    cell = Powerpoint::Slide::TableCell
+
+    top_left = cell.new('topleft')
+    bottom_left = cell.row(['botleft1', 'botleft2', 'botleft3'])
+    left_side = cell.weld_vertical(top_left, bottom_left)
+
+
+    # not welding so we can get a square arrangement here
+    right_col = cell.column(['topright1', 'topright2', 'botright'])
+    top_left.set_right_neighbors([right_col, right_col.bottom[0]])
+    bottom_left.all_right[0].set_right_neighbor(right_col.bottom_left)
+
+
+    elements = [
+        Powerpoint::Slide::EnhancedTableContent.new(idx: 14, table_cells: top_left),
+
+        Powerpoint::Slide::TextContent.new(
+            idx: 13,
+            content: ['long description line goes here']),
+
+        Powerpoint::Slide::TextContent.new(
+            idx: 16,
+            content: [t.new('foo', size: 2400, color: '2d97d3') + 'bar', t.new('baz', bold: true) + '◼']
+        )
+    ]
+
+    slide_opts = {
+        elements: elements,
+        slide_layout: 12,
+        title: 'foo bar slide'
+    }
+
+    @deck.add_slide(Powerpoint::Slide::DefaultSlide.new(slide_opts))
+
 
     @deck.save 'samples/pptx/sample.pptx' # Examine the PPTX file
   end
