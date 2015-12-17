@@ -12,5 +12,13 @@
       <a:endParaRPr dirty="0" lang="en-US" />
     </a:p>
   </a:txBody>
-  <a:tcPr/>
+  <% if color %>
+    <a:tcPr>
+      <a:solidFill>
+        <a:srgbClr val="<%= color %>"/>
+      </a:solidFill>
+    </a:tcPr>
+  <% else %>
+    <a:tcPr/>
+  <% end %>
 </a:tc>
