@@ -57,19 +57,19 @@ describe 'Powerpoint parsing a sample PPTX file' do
 
     cell = Powerpoint::Slide::TableCell
 
-    top_left = cell.new('topleft')
-    bottom_left = cell.row(['botleft1', 'botleft2', 'botleft3'])
+    top_left = cell.new('topleft', color: 'FFFF00')
+    bottom_left = cell.row(%w(botleft1 botleft2 botleft3))
     left_side = cell.weld_vertical(top_left, bottom_left)
 
 
     # not welding so we can get a square arrangement here
-    right_col = cell.column(['topright1', 'topright2', 'botright'])
+    right_col = cell.column(%w(topright1 topright2 botright))
     top_left.set_right_neighbors([right_col, right_col.bottom[0]])
     bottom_left.all_right[0].set_right_neighbors(right_col.bottom_left)
 
 
     elements = [
-        Powerpoint::Slide::EnhancedTableContent.new(idx: 14, table_cells: top_left),
+        Powerpoint::Slide::EnhancedTableContent.new(idx: 14, table_cells: top_left, unstyled: true),
 
         Powerpoint::Slide::TextContent.new(
             idx: 13,

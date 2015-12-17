@@ -5,13 +5,12 @@ module Powerpoint
     class TableContent
       include Powerpoint::Util
 
-      attr_reader :content, :id, :idx
+      attr_reader :content, :id, :idx, :unstyled
       attr_writer :id, :idx
 
       def initialize(options={})
         require_arguments [:content, :idx], options
         options.each { |k, v| instance_variable_set("@#{k}", v) }
-
       end
 
       def render

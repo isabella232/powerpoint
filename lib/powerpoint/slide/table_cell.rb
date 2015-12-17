@@ -7,8 +7,9 @@ module Powerpoint
 
       attr_reader :horizontal_size, :vertical_size, :data, :right, :bottom
 
-      def initialize(data)
+      def initialize(data, options = {})
         @data = data
+        @options = options
         @right = []
         @bottom = []
       end
@@ -94,7 +95,7 @@ module Powerpoint
 
                 options[:template] = template
 
-                RenderableCell.new(options)
+                RenderableCell.new(options.merge(@options))
               end
             end
 
@@ -176,7 +177,7 @@ module Powerpoint
     class EnhancedTableContent
       include Powerpoint::Util
 
-      attr_reader :content, :id, :idx
+      attr_reader :content, :id, :idx, :color, :unstyled
       attr_writer :id, :idx
 
       def initialize(options={})
@@ -186,7 +187,6 @@ module Powerpoint
 
       def render
         @content = @table_cells.to_renderable
-
         render_str('_enhanced_table.xml.erb')
       end
     end
@@ -196,7 +196,7 @@ module Powerpoint
     class RenderableCell
       include Powerpoint::Util
 
-      attr_reader :h_merge, :v_merge, :rowspan, :gridspan, :data
+      attr_reader :h_merge, :v_merge, :rowspan, :gridspan, :data, :color
 
       def initialize(options)
         require_arguments [:template], options
