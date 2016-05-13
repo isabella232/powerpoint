@@ -32,7 +32,7 @@
           <a:p>
             <a:r>
               <a:rPr dirty="0" lang="en-US" smtClean="0"/>
-              <a:t><%= title.encode(:xml => :text) %></a:t>
+              <a:t><%= encode_xml(title) %></a:t>
             </a:r>
             <a:endParaRPr dirty="0" lang="en-US"/>
           </a:p>
@@ -55,7 +55,7 @@
           <a:p>
             <a:r>
               <a:rPr lang="en-US" smtClean="0"/>
-              <a:t><%= subtitile.encode(:xml => :text) %></a:t>
+              <a:t><%= encode_xml(subtitle) %></a:t>
             </a:r>
             <a:endParaRPr lang="en-US"/>
           </a:p>

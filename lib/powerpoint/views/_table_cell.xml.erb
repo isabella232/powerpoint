@@ -6,7 +6,7 @@
       <% unless h_merge || v_merge %>
         <a:r>
           <a:rPr lang="en-US" sz="1200" dirty="0" smtClean="0" />
-          <a:t><%= data.encode(:xml => :text) %></a:t>
+          <a:t><%= encode_xml(data) %></a:t>
         </a:r>
       <% end %>
       <a:endParaRPr dirty="0" lang="en-US" />

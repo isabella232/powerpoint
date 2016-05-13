@@ -6,10 +6,10 @@ module Powerpoint
     class Intro
       include Powerpoint::Util
       
-      attr_reader :title, :subtitile
+      attr_reader :title, :subtitle
 
       def initialize(options={})
-        require_arguments [:title, :subtitile], options
+        require_arguments [:title, :subtitle], options
         options.each {|k, v| instance_variable_set("@#{k}", v)}
       end
 

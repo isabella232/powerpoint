@@ -12,9 +12,9 @@ module Powerpoint
       @slides = []
     end
 
-    def add_intro(title, subtitile = nil)
+    def add_intro(title, subtitle = nil)
       existing_intro_slide = @slides.select {|s| s.class == Powerpoint::Slide::Intro}[0]
-      slide = Powerpoint::Slide::Intro.new(presentation: self, title: title, subtitile: subtitile)
+      slide = Powerpoint::Slide::Intro.new(presentation: self, title: title, subtitle: subtitle)
       if existing_intro_slide
         @slides[@slides.index(existing_intro_slide)] = slide 
       else

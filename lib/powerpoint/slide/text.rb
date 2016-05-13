@@ -79,7 +79,7 @@ module Powerpoint
         before = %(<a:r><a:rPr dirty="0" lang="en-US" #{sz} #{bold} smtClean="0">#{color}</a:rPr><a:t>)
         after = '</a:t></a:r>'
 
-        "#{before}#{values.map { |b| b.encode(:xml => :text) }.join}#{after}"
+        "#{before}#{values.map { |b| encode_xml(b) }.join}#{after}"
       end
     end
   end
