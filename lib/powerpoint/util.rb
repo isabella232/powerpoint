@@ -28,6 +28,10 @@ module Powerpoint
       FileUtils.copy_file(image_path, dest_path) unless File.exist?(dest_path)
     end
 
+    def encode_xml(text)
+      text.to_s.encode(xml: :text)
+    end
+
     def render_str(template)
       renderer = ERB.new(read_template(template))
       renderer.result(binding)
