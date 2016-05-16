@@ -39,7 +39,7 @@
       <vt:lpstr>Calibri</vt:lpstr>
       <vt:lpstr>Office Theme</vt:lpstr>
       <% slides.each do |slide| %>
-        <vt:lpstr><%= slide.title %></vt:lpstr>
+        <vt:lpstr><%= encode_xml(slide.title) %></vt:lpstr>
       <% end %>
     </vt:vector>
   </TitlesOfParts>
